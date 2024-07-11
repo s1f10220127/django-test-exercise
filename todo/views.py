@@ -35,7 +35,7 @@ def detail(request, task_id):
     return render(request, "todo/detail.html", context)
 
 
-def close(requsst, task_id):
+def close(request, task_id):
     try:
         task = Task.objects.get(pk=task_id)
     except Task.DoesNotExist:
