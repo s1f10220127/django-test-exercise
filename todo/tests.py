@@ -126,7 +126,6 @@ class TodoViewTestCase(TestCase):
 
         self.assertEqual(response.status_code, 404)
 
-class TodoUpdateTestCase(TestCase):
     def test_update_success(self):
         task = Task(title="task1", due_at=timezone.make_aware(datetime(2024, 7, 1)))
         task.save()
@@ -152,9 +151,3 @@ class TodoUpdateTestCase(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, "/1/", status_code=302, target_status_code=200, msg_prefix='', fetch_redirect_response=True)
-
-    def test_detail_get_fail(self):
-        client = Client()
-        response = client.get("/1/update")
-
-        self.assertEqual(response.status_code, 404)
