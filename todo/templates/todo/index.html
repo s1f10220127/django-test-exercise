@@ -18,6 +18,10 @@
         <input id="titleInput" name="title" type="text" placeholder="Input title">
       </div>
       <div>
+        <label for="contentsInput">Contents</label><br>
+        <input id="contentsInput" name="contents" type="text" placeholder="Input contents">
+      </div>
+      <div>
         <label for="dueInput">Due at:</label><br>
         <input id="dueInput" name="due_at" type="datetime-local">
       </div>
@@ -35,6 +39,7 @@
     {% for task in tasks %}
     <div class="text">
       <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a></h2>
+      <h3>{{ task.contents }}</h2>
       <ul>
         <li>Posted at: {{ task.posted_at }}</li>
         {% if task.due_at %} 

@@ -10,6 +10,7 @@ def index(request):
     if request.method == "POST":
         task = Task(
             title=request.POST["title"],
+            contents=request.POST["contents"],
             due_at=make_aware(parse_datetime(request.POST["due_at"])),
         )
         task.save()
